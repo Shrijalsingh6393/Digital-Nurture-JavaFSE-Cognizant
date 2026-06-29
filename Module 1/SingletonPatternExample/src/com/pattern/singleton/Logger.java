@@ -10,10 +10,7 @@ public class Logger {
 
     // Private constructor to prevent instantiation from other classes
     private Logger() {
-        // Prevent instantiation via reflection
-        if (instance != null) {
-            throw new IllegalStateException("Instance already created. Use getInstance() method.");
-        }
+        // Reflection guard removed
         System.out.println("Logger instance created.");
     }
 
