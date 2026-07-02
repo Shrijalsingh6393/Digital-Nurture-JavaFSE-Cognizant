@@ -1,10 +1,9 @@
 package com.library.repository;
 
+import com.library.entity.Book;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class BookRepository {
-    public void save(String title) {
-        System.out.println("Saving book: " + title);
- }
+public interface BookRepository extends JpaRepository<Book, Long> {
 }

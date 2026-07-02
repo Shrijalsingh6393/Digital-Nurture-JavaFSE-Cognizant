@@ -1,23 +1,24 @@
 package com.library.aspect;
 
-import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
 public class LoggingAspect {
 
-    // Log execution time of any public method in the service package
-    @Around("execution(public * com.library.service..*(..))")
-    public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
-        long start = System.currentTimeMillis();
-        try {
-            return joinPoint.proceed();
-        } finally {
-            long elapsed = System.currentTimeMillis() - start;
-            System.out.println("[LOG] " + joinPoint.getSignature() + " executed in " + elapsed + " ms");
-        }
+    // Log before method execution
+    @Before("execution(* com.library.service.BookService.*(..))")
+    public void logBefore(JoinPoint joinPoint) {
+        System.out.println("[LOG] Before executing method: " + joinPoint.getSignature().getName());
+    }
+
+    // Log after method execution
+    @After("execution(* com.library.service.BookService.*(..))")
+    public void logAfter(JoinPoint joinPoint) {
+        System.out.println("[LOG] After executing method: " + joinPoint.getSignature().getName());
     }
 }
