@@ -1,0 +1,53 @@
+.App {
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+}
+
+.posts-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.posts-header {
+  text-align: center;
+  color: #38bdf8;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.25rem;
+  color: #94a3b8;
+}
+
+.post-card {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.post-title {
+  color: #f8fafc;
+  font-size: 1.4rem;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  text-transform: capitalize;
+}
+
+.post-body {
+  color: #94a3b8;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.error-container {
+  text-align: center;
+  padding: 2rem;
+  color: #ef4444;
+}
