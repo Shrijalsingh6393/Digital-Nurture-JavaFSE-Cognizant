@@ -1,0 +1,67 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "name": "Data Structures & Algorithms",
+      "code": "CS101",
+      "credits": 4,
+      "gradeStatus": "passed"
+    },
+    {
+      "id": 2,
+      "name": "Database Management Systems",
+      "code": "CS102",
+      "credits": 3,
+      "gradeStatus": "passed"
+    },
+    {
+      "id": 3,
+      "name": "Web Application Development with Angular",
+      "code": "CS103",
+      "credits": 4,
+      "gradeStatus": "pending"
+    },
+    {
+      "id": 4,
+      "name": "Software Engineering Principles",
+      "code": "CS104",
+      "credits": 3,
+      "gradeStatus": "passed"
+    },
+    {
+      "id": 5,
+      "name": "Cloud Computing Fundamentals",
+      "code": "CS105",
+      "credits": 2,
+      "gradeStatus": "failed"
+    }
+  ],
+  "students": [
+    {
+      "id": 1,
+      "name": "Alex Mercer",
+      "email": "alex.mercer@student.edu",
+      "gpa": 3.8
+    }
+  ],
+  "enrollments": [
+    {
+      "id": 1,
+      "studentId": 1,
+      "courseId": 1,
+      "semester": "Odd"
+    },
+    {
+      "id": 2,
+      "studentId": 1,
+      "courseId": 2,
+      "semester": "Odd"
+    },
+    {
+      "id": 3,
+      "studentId": 1,
+      "courseId": 3,
+      "semester": "Even"
+    }
+  ]
+}

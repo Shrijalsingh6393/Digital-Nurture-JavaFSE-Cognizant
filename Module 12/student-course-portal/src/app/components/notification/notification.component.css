@@ -1,0 +1,18 @@
+.notification-widget {
+  background-color: #eff6ff;
+  border-left: 4px solid #3b82f6;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+}
+
+.notification-widget h4 {
+  margin: 0 0 0.5rem 0;
+  color: #1e3a8a;
+}
+
+.notification-widget ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: #1e40af;
+}

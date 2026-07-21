@@ -1,0 +1,15 @@
+Angular Project File Explanations (Hands-On 1 Task 1)
+=====================================================
+
+1. angular.json: The CLI workspace configuration file that defines project settings, build options, asset paths, stylesheets, and environment configurations for building and serving the app.
+2. tsconfig.json: The root TypeScript configuration file specifying global compiler options, target JavaScript version, module resolution rules, and strict type-checking settings for the entire workspace.
+3. tsconfig.app.json: An app-specific TypeScript configuration extending tsconfig.json that specifies files to include during application compilation while excluding test files (*.spec.ts).
+4. package.json: The npm configuration file listing runtime dependencies (@angular/core, RxJS, NgRx), devDependencies (@angular/cli, TypeScript, Jasmine/Karma), and script commands (ng serve, ng build, ng test).
+5. src/main.ts: The application entry point script that bootstraps the Angular application platform and initializes either the root module (AppModule) or standalone root configuration (app.config.ts).
+6. src/app/app.config.ts: The central application configuration file for modern Angular standalone applications defining root providers, application routes, HTTP client interceptors, and NgRx store setup.
+7. src/app/app.component.ts: The root component class decorated with @Component that acts as the container holding the main navigation layout, global router outlet, and top-level view logic.
+8. src/index.html: The main single HTML host page containing document metadata, CSS/font links, and the root element tag (<app-root>) where Angular dynamically injects rendered component views.
+
+Budgets Configuration Explanation (angular.json -> architect > build > configurations > production):
+- maximumWarning: Specifies the bundle size threshold (e.g. 500kB) beyond which the Angular CLI issues a build warning during production builds to alert developers about bloated initial bundle sizes.
+- maximumError: Specifies the maximum allowable bundle size threshold (e.g. 1MB) which, if exceeded during compilation, causes the build to fail automatically to prevent deploying excessively large JavaScript bundles.

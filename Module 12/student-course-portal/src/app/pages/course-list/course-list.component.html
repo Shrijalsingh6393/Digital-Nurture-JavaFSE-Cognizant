@@ -1,0 +1,41 @@
+<div class="container">
+  <h2>Available Courses</h2>
+
+  <div class="filter-bar">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      (ngModelChange)="onSearchChange()"
+      placeholder="Filter courses by name or code..."
+      class="filter-input"
+    >
+  </div>
+
+  <div *ngIf="selectedCourseId" class="selected-banner">
+    <p>Selected course ID: <strong>{{ selectedCourseId }}</strong></p>
+  </div>
+
+  <!-- Loading State (Hands-On 3 Task 1 Step 25) -->
+  <div *ngIf="isLoading; else courseGrid">
+    <p class="loading-text">Loading courses...</p>
+  </div>
+
+  <ng-template #courseGrid>
+    <!-- NgIf with else block for empty list (Hands-On 3 Task 1 Step 28) -->
+    <div *ngIf="courses.length > 0; else noCourses" class="course-grid">
+      <app-course-card
+        *ngFor="let course of courses; let i = index; trackBy: trackByCourseId"
+        [course]="course"
+        [isEnrolled]="isEnrolled(course.id)"
+        (enrollRequested)="onEnroll($event)"
+      ></app-course-card>
+    </div>
+  </ng-template>
+
+  <!-- Empty list template -->
+  <ng-template #noCourses>
+    <div class="empty-state">
+      <p>No courses available.</p>
+    </div>
+  </ng-template>
+</div>

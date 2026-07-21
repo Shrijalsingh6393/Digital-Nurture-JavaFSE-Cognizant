@@ -1,0 +1,51 @@
+<div class="container">
+  <app-notification></app-notification>
+
+  <header class="home-hero">
+    <h1>{{ portalName }}</h1>
+    <p class="subtitle">Welcome to your central hub for exploring, enrolling, and managing college courses efficiently.</p>
+    
+    <div class="action-bar">
+      <button class="btn-primary" [disabled]="!isPortalActive" (click)="onEnrollClick()">
+        Enroll Now
+      </button>
+      <span *ngIf="message" class="enroll-message">{{ message }}</span>
+    </div>
+  </header>
+
+  <section class="stats-row">
+    <div class="stat-card">
+      <h3>Courses Available</h3>
+      <p class="stat-value">{{ availableCoursesCount }}</p>
+    </div>
+    <div class="stat-card">
+      <h3>Enrolled</h3>
+      <p class="stat-value">3</p>
+    </div>
+    <div class="stat-card">
+      <h3>GPA</h3>
+      <p class="stat-value">3.8</p>
+    </div>
+  </section>
+
+  <section class="search-section">
+    <label for="search">Quick Search Course:</label>
+    <input id="search" type="text" [(ngModel)]="searchTerm" placeholder="Type course name..." class="search-input">
+    <p *ngIf="searchTerm" class="search-preview">Searching for: <strong>{{ searchTerm }}</strong></p>
+  </section>
+
+  <section class="portal-shortcuts">
+    <a routerLink="/courses" class="shortcut-card">
+      <h3>Browse Courses &rarr;</h3>
+      <p>Explore detailed course catalog with credits and grade statuses.</p>
+    </a>
+    <a routerLink="/enroll" class="shortcut-card">
+      <h3>Template-Driven Enrollment &rarr;</h3>
+      <p>Submit course enrollment requests with HTML form validation.</p>
+    </a>
+    <a routerLink="/enroll-reactive" class="shortcut-card">
+      <h3>Reactive Enrollment &rarr;</h3>
+      <p>Dynamic reactive form with custom sync & async validators.</p>
+    </a>
+  </section>
+</div>
