@@ -1,0 +1,119 @@
+.App {
+  min-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.light-theme-bg {
+  background-color: #0f172a;
+}
+
+.dark-theme-bg {
+  background-color: #020617;
+}
+
+.App-header {
+  margin-bottom: 2.5rem;
+}
+
+.App-header h1 {
+  color: #38bdf8;
+  font-size: 2.2rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.theme-toggle-btn {
+  background-color: #0284c7;
+  color: #ffffff;
+  padding: 0.65rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+  transform: translateY(-2px);
+}
+
+.App-main {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.employees-list h2 {
+  color: #facc15;
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.employee-card {
+  border-radius: 14px;
+  padding: 1.75rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  text-align: left;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.light-card {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  color: #f8fafc;
+}
+
+.dark-card {
+  background: linear-gradient(135deg, #090d16 0%, #030712 100%);
+  color: #e2e8f0;
+  border-color: rgba(56, 189, 248, 0.2);
+}
+
+.employee-card h3 {
+  margin-top: 0;
+  color: #38bdf8;
+  font-size: 1.25rem;
+}
+
+.employee-card p {
+  margin: 0.5rem 0;
+  color: #cbd5e1;
+}
+
+.btn {
+  padding: 0.6rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+  width: 100%;
+  transition: transform 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Light Theme Button Styling */
+.light-btn {
+  background-color: #38bdf8;
+  color: #0f172a;
+}
+
+/* Dark Theme Button Styling */
+.dark-btn {
+  background-color: #f59e0b;
+  color: #020617;
+}
