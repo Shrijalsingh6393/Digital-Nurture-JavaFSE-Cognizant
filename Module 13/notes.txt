@@ -1,0 +1,134 @@
+Module 13: Introduction to React & Single-Page Applications (SPA)
+===================================================================
+
+PART 1: React & Single-Page Application (SPA) Fundamentals
+----------------------------------------------------------
+Definition of SPA, benefits, React definition, SPA vs MPA, Virtual DOM, and core React features.
+
+PART 2: React Components Deep Dive & Architecture
+--------------------------------------------------
+React Components, Components vs Plain JS functions, Types of Components (Class vs Functional), Constructor, and `render()`.
+
+PART 3: Component Lifecycle & Lifecycle Hooks
+----------------------------------------------
+Mounting (`componentDidMount`), Updating (`componentDidUpdate`), Unmounting (`componentWillUnmount`), and Error Handling (`componentDidCatch`).
+
+PART 4: Styling React Components & CSS Modules
+----------------------------------------------
+Need for styling, Global CSS, Inline Styles, CSS Modules (`[name].module.css`), and dynamic inline styles.
+
+PART 5: React Router & Navigation (Client-Side Routing)
+--------------------------------------------------------
+`BrowserRouter`, `Routes`, `Route`, `Link`, `NavLink`, `useParams()`, and router types.
+
+PART 6: Props, Default Props, State & DOM Rendering
+---------------------------------------------------
+Props definition, `defaultProps`, State vs Props comparison, and `ReactDOM.render()`.
+
+PART 7: React State in Depth
+----------------------------
+State definition, `this.state` initialization, `this.setState()` mutation rules, and event binding.
+
+PART 8: ES6 (ECMAScript 2015) Features Deep Dive
+------------------------------------------------
+Let vs Var vs Const, Arrow Functions, Classes & Inheritance, Destructuring, Spread Operator, Set, and Map.
+
+PART 9: JSX (JavaScript XML) & DOM Rendering
+---------------------------------------------
+JSX definition, `React.createElement()`, JavaScript expressions in JSX `{}` and inline CSS objects.
+
+PART 10: React Event Handling & Synthetic Events
+-------------------------------------------------
+React events system, event handlers, SyntheticEvent cross-browser normalization, and camelCase naming conventions.
+
+PART 11: Conditional Rendering & Element Variables
+--------------------------------------------------
+`if/else` statements, Element Variables (`let content`), Ternary operator, Logical `&&`, and returning `null`.
+
+PART 12: List Components, Keys & `.map()` Iteration
+---------------------------------------------------
+Various ways of conditional rendering, List Components, importance of unique `key` props, and extracting components with keys.
+
+PART 13: React Context API & State Sharing
+------------------------------------------
+Prop-drilling vs Context API, `createContext()`, `Provider`, and `useContext()`.
+
+PART 14: React Forms & Controlled Components
+--------------------------------------------
+Single source of truth pattern, Controlled Components, input controls (`input`, `textarea`, `select`), and form submission.
+
+PART 15: React Forms Validation & HTML vs React Forms
+------------------------------------------------------
+Differences between React and HTML forms, real-time (`onChange`) vs submission (`onSubmit`) validation.
+
+PART 16: Consuming REST APIs in React Applications
+--------------------------------------------------
+`fetch()` API, `async / await`, `componentDidMount()` HTTP requests, and handling loading/data/error states.
+
+PART 17: Unit Testing in React (Jest & Enzyme)
+----------------------------------------------
+Need for Unit Testing, Jest runner, Enzyme rendering modes (`shallow`, `mount`), `setupTests.js`, matchers, and snapshots (`toMatchSnapshot()`).
+
+PART 18: Testing Isolation, Mocking & Spies in Jest
+----------------------------------------------------
+
+1. Need for Isolation in Testing
+--------------------------------
+Unit tests must verify code logic in complete isolation from external environments (network APIs, databases, third-party microservices).
+
+Why Isolation Matters:
+- Eliminates Flakiness: Prevents test failures caused by external server downtime or network timeouts.
+- Speed: Executing unit tests against in-memory mocks is orders of magnitude faster than actual network I/O.
+- Deterministic Results: Allows simulating rare HTTP status codes (404, 500, rate limits) reliably.
+
+2. Concept of Mocking & Spies
+-----------------------------
+Mocking is the practice of replacing real objects or modules with simulated "test double" implementations.
+- Mock Function (`jest.fn()`): A dummy function that records calls, arguments, and returns configured values.
+- Module Mocking (`jest.mock('axios')`): Replaces an entire npm module with mock functions.
+- Spies (`jest.spyOn()`): Observes real function calls while optionally overriding implementation.
+
+3. Mocking `axios` with Jest
+----------------------------
+To unit test a module calling GitHub REST API (`GitClient.js`) without hitting `api.github.com`:
+```javascript
+import axios from 'axios';
+import GitClient from './GitClient';
+
+jest.mock('axios');
+
+test('should return repository names for techiesyed', async () => {
+  const mockRepos = [{ name: 'repo1' }, { name: 'repo2' }];
+  axios.get.mockResolvedValue({ data: mockRepos });
+
+  const gitClient = new GitClient();
+  const repos = await gitClient.getRepositories('techiesyed');
+
+  expect(repos).toEqual(['repo1', 'repo2']);
+  expect(axios.get).toHaveBeenCalledWith('https://api.github.com/users/techiesyed/repos');
+});
+```
+
+
+PART 19: Hands-On Labs Execution Instructions
+----------------------------------------------
+
+Lab 1: "myfirstreact" -> Basic React App printing "welcome to the first session of React"
+Lab 2: "StudentApp" -> Multi-component app (`Home`, `About`, `Contact`)
+Lab 3: "scorecalculatorapp" -> Function component `CalculateScore` with custom `mystyle.css`
+Lab 4: "blogapp" -> Class component `Posts` using `componentDidMount()` & `componentDidCatch()`
+Lab 5: "cohortapp" -> CSS Modules (`CohortDetails.module.css`) with dynamic inline styling
+Lab 6: "TrainersApp" -> React Router integration (`BrowserRouter`, `Routes`, `Route`, `Link`, `useParams`)
+Lab 7: "shoppingapp" -> Class components `OnlineShopping` and `Cart` using props
+Lab 8: "counterapp" -> Class component `CountPeople` using state (`entrycount`, `exitcount`)
+Lab 9: "cricketapp" -> Demonstrates ES6 `.map()`, `.filter()`, Destructuring, and Spread Operator
+Lab 10: "officespacerentalapp" -> Uses JSX syntax, image attributes, object mapping, and dynamic inline CSS
+Lab 11: "eventexamplesapp" -> Event handling, multi-method invocation, argument passing, and `CurrencyConvertor`
+Lab 12: "ticketbookingapp" -> Conditional rendering using Element Variables (`GuestPage` vs `UserPage`)
+Lab 13: "bloggerapp" -> Demonstrates multiple conditional rendering methods rendering `BookDetails`, `BlogDetails`, and `CourseDetails`
+Lab 14: "employeemanagementapp" -> Converts prop-drilling into React Context API (`ThemeContext.js`, `ThemeContext.Provider`, `useContext()`)
+Lab 15: "ticketraisingapp" -> Class component `ComplaintRegister` using Controlled Components and reference number generation
+Lab 16: "mailregisterapp" -> Class component `Register` in `Register.js` performing field validation for Name, Email, and Password
+Lab 17: "fetchuserapp" -> Class component `Getuser` executing `async componentDidMount()` to fetch random user details
+Lab 18: "cohorttestingapp" -> Configures Enzyme adapter in `setupTests.js` and implements 4 unit tests in `CohortDetails.test.js`
+Lab 19: "gitclientapp" -> Class `GitClient` in `GitClient.js` using `axios.get('https://api.github.com/users/:username/repos')` to fetch repo names, rendered in `App.js`, and unit tested in `GitClient.test.js` using `jest.mock('axios')` and `axios.get.mockResolvedValue()`
